@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+.dash-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.dash-stars,
+.dash-shooting-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/matteobruni/tsparticles/main/demo/particles/stars/images/stars.jpg');
+  background-size: cover;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.dash-top-bar {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.dash-top-bar h1 {
+  font-size: 2.5vw;
+  font-family: 'Protest Guerrilla', cursive;
+  color: #fff;
+  margin: 0;
+}
+
+.dash-name {
+  color: #f57c00;
+}
+
+.dash-profile-dropdown {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dash-profile-icon {
+  
+  border-radius: 50%;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🧩 Enlarged Dropdown Box */
+.dash-dropdown-menu {
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  background-color: #111;
+  border: 2px solid #1cd6eb;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  z-index: 3;
+  width: 280px;
+
+}
+
+.dash-dropdown-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #00f7ff;
+}
+
+.dash-dropdown-subtext {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 0.8rem;
+}
+
+.dash-dropdown-divider {
+  margin: 0.8rem 0;
+  border-color: #1cd6eb;
+}
+
+.dash-dropdown-item {
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.dash-dropdown-item:hover {
+  color: #1cd6eb;
+}
+
+/* 🧠 Assistant Cards */
+.dash-assistant-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.dash-assistant-card {
+  border: 1px solid #1cd6eb;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 240px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 12px #00f7ff;
+  transition: transform 0.3s ease;
+}
+
+.dash-assistant-card:hover {
+  transform: scale(1.05);
+}
+
+.dash-card-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-family: 'Protest Guerrilla', cursive;
+  color: #fff;
+}
+
+.dash-lets-go {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #1cd6eb;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.8rem;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px #1cd6eb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dash-lets-go:hover {
+  background-color: #00f7ff;
+  color: #000;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .dash-top-bar h1 {
+    font-size: 4vw;
+  }
+
+  .dash-assistant-cards {
+    padding: 2rem 1rem;
+  }
+
+  .dash-assistant-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dash-top-bar h1 {
+    font-size: 5vw;
+    margin-bottom: 1rem;
+  }
+
+  .dash-assistant-card {
+    width: 80%;
+  }
+
+  .dash-dropdown-menu {
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-lets-go {
+    width: 100%;
+  }
+
+  .dash-card-content h2 {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-size: cover;
+}
+
+/* 🎯 Login Box */
+.login-form {
+  padding: 4vh 4vw;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 20px #00f7ff;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-form h2 {
+  font-size: 2.2vw;
+  margin-bottom: 2vh;
+  color: #ffffff;
+  font-family: 'Protest Guerrilla', cursive;
+  
+  text-align: center;
+}
+
+/* ✏️ Input Fields */
+.login-form input {
+  width: 100%;
+  margin: 1vh 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: inset 0 0 6px #1cd6eb;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+  box-shadow: 0 0 10px #00f7ff;
+}
+
+/* 🔘 Login Button */
+.login-form button[type="submit"] {
+  background-color: transparent;
+  border: 1px solid #1cd6eb;
+  color: #ffffff;
+  padding: 0.9rem 1.5rem;
+  margin-top: 2vh;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #1cd6eb;
+  transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #00f7ff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* 🔗 Register Redirect */
+.register-redirect {
+  margin-top: 2vh;
+  color: #ccc;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.register-redirect span {
+  color: #00f7ff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.register-redirect span:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 768px) {
+  .login-form h2 {
+    font-size: 5vw;
+  }
+
+  .login-form button {
+    width: 100%;
+  }
+}
+
+.custom-google-button-wrapper {
+  margin-top: 1.5vh;
+  background-color: black;
+}

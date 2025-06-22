@@ -1,0 +1,99 @@
+/* 📋 Fullscreen Task Manager Styling */
+.task-manager {
+  padding: 20px;
+  color: #00f7ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  min-height: 100vh;
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.task-input input[type="text"],
+.task-input input[type="date"] {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #00f7ff;
+  border-radius: 20px;
+  background: transparent;
+  color: white;
+}
+
+.task-input button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #00f7ff;
+  background-color: transparent;
+  color: #00f7ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-input button:hover {
+  background-color: #00f7ff;
+  color: black;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  border: 1px solid #00f7ff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: rgba(0, 247, 255, 0.05);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.task-title.completed {
+  text-decoration: line-through;
+  color: #808080;
+}
+
+.task-info {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.task-content button {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  margin-right: 8px;
+  border-radius: 14px;
+  border: 1px solid #00f7ff;
+  background-color: transparent;
+  color: #00f7ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-content button:hover {
+  background-color: #00f7ff;
+  color: black;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

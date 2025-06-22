@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+.register-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.register-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+ 
+  background-size: cover;
+}
+
+/* 📝 Responsive Form Style */
+.register-form {
+  padding: 4vh 4vw;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 20px #00f7ff;
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  backdrop-filter: blur(4px);
+}
+
+.register-form h2 {
+  font-size: 2.2vw;
+  margin-bottom: 2vh;
+  color: #ffffff;
+  font-family: 'Protest Guerrilla', cursive;
+ 
+  text-align: center;
+}
+
+/* ✏️ Input Fields */
+.register-form input {
+  width: 100%;
+  margin: 1vh 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: inset 0 0 6px #1cd6eb;
+  transition: box-shadow 0.3s ease;
+}
+
+.register-form input:focus {
+  box-shadow: 0 0 10px #00f7ff;
+}
+
+/* 🔘 Submit Button */
+.register-form button[type="submit"] {
+  background-color: transparent;
+  border: 1px solid #1cd6eb;
+  color: #ffffff;
+  padding: 0.9rem 1.5rem;
+  margin-top: 2vh;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #1cd6eb;
+  transition: all 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #00f7ff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* 🔗 Sign In Redirect */
+.signin-text {
+  margin-top: 2vh;
+  color: #ccc;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.signin-link {
+  color: #00f7ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signin-link:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive Font & Scaling */
+@media (max-width: 768px) {
+  .register-form h2 {
+    font-size: 5vw;
+  }
+
+  .register-form button {
+    width: 100%;
+  }
+}
+
+
