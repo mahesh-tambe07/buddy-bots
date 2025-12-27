@@ -23,48 +23,74 @@ const Assistant = () => {
     wishMe(language, speak, voiceRef);
   }, [language]);
 
+  // const handleCommand = async (command) => {
+  //   const systemPrompt =
+  //     language === "mr"
+  //       ? "तू एक उपयुक्त सहाय्यक आहेस. वापरकर्त्याच्या प्रश्नांना मराठीत उत्तर दे."
+  //       : language === "hi"
+  //       ? "आप एक सहायक हैं। उपयोगकर्ता के प्रश्नों का उत्तर हिंदी में दें।"
+  //       : "You are a helpful assistant. Reply in English.";
+
+  //   try {
+  //     const res = await axios.post(
+  //       "https://openrouter.ai/api/v1/chat/completions",
+  //       {
+  //         model: "openai/gpt-3.5-turbo",
+  //         messages: [
+  //           { role: "system", content: systemPrompt },
+  //           { role: "user", content: command },
+  //         ],
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
+  //           "HTTP-Referer": "http://localhost:3000",
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //     const reply = res.data.choices[0].message.content;
+  //     speak(reply, language, voiceRef);
+  //   } catch (err) {
+  //     console.error("API Error:", err.response?.data || err.message);
+  //     speak(
+  //       language === "hi"
+  //         ? "अभी जवाब नहीं मिल पाया।"
+  //         : language === "mr"
+  //         ? "आता उत्तर मिळालं नाही."
+  //         : "Sorry, I couldn't get a response right now.",
+  //       language,
+  //       voiceRef
+  //     );
+  //   }
+  // };  
   const handleCommand = async (command) => {
-    const systemPrompt =
-      language === "mr"
-        ? "तू एक उपयुक्त सहाय्यक आहेस. वापरकर्त्याच्या प्रश्नांना मराठीत उत्तर दे."
-        : language === "hi"
-        ? "आप एक सहायक हैं। उपयोगकर्ता के प्रश्नों का उत्तर हिंदी में दें।"
-        : "You are a helpful assistant. Reply in English.";
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/api/chat`,
+      {
+        messages: [{ from: "user", text: command }],
+        language, // optional if you want multilingual logic backend-side
+      }
+    );
 
-    try {
-      const res = await axios.post(
-        "https://openrouter.ai/api/v1/chat/completions",
-        {
-          model: "openai/gpt-3.5-turbo",
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: command },
-          ],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
-            "HTTP-Referer": "http://localhost:3000",
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    const reply = res.data.reply;
+    speak(reply, language, voiceRef);
 
-      const reply = res.data.choices[0].message.content;
-      speak(reply, language, voiceRef);
-    } catch (err) {
-      console.error("API Error:", err.response?.data || err.message);
-      speak(
-        language === "hi"
-          ? "अभी जवाब नहीं मिल पाया।"
-          : language === "mr"
-          ? "आता उत्तर मिळालं नाही."
-          : "Sorry, I couldn't get a response right now.",
-        language,
-        voiceRef
-      );
-    }
-  };
+  } catch (err) {
+    console.error("API Error:", err.message);
+    speak(
+      language === "hi"
+        ? "अभी जवाब नहीं मिल पाया।"
+        : language === "mr"
+        ? "आता उत्तर मिळालं नाही."
+        : "Sorry, I couldn't get a response right now.",
+      language,
+      voiceRef
+    );
+  }
+};
 
   const toggleListening = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
